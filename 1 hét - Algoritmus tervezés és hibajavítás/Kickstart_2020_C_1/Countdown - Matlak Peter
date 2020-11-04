@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int tesztDb, elemDb, k, elem;
+    cin >> tesztDb;
+    int keresettSzam, countdownDb;
+    for (int t = 1; t <= tesztDb; t++){
+        countdownDb=0;
+        /// a countdownDb-ot minden teszt elejen lenullaztam
+        cin >> elemDb >> k;
+        keresettSzam = k;
+        for(int i = 1; i <= elemDb; i++){
+            cin >> elem;
+            if (elem == keresettSzam){
+                keresettSzam--;
+                if (keresettSzam == 0) {
+                    countdownDb++;
+                    keresettSzam = k;
+                }
+            }
+            else if (elem == k){
+                    /// az if felteteleben levo egy = melle irtam meg egyet
+                keresettSzam = k-1;
+            /// a keresettSzam = k -t keresettSzam = k-1 -re alakitottam
+            }
+            else keresettSzam = k;
+        }
+        cout << "Case #" << t << ": " << countdownDb << endl;
+    }
+    return 0;
+}
